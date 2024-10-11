@@ -9,11 +9,11 @@
 </head>
 <body>
     <?php
-        $stmt = $pdo->prepare("SELECT * FROM Users WHERE UserID = 2");
+        $stmt = $pdo->prepare("SELECT * FROM Users");
             
         if ($stmt->execute()) {
             echo "<pre>";
-            print_r($stmt->fetch());
+            print_r($stmt->fetchAll());
             echo "<pre>";
         }
     ?>

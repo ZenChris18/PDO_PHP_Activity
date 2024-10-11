@@ -9,12 +9,19 @@
 </head>
 <body>
     <?php
-        $stmt = $pdo->prepare("SELECT * FROM Users");
-            
-        if ($stmt->execute()) {
-            echo "<pre>";
-            print_r($stmt->fetchAll());
-            echo "<pre>";
+        $query = "INSERT INTO Users (UserID, Name, email, preferences) VALUES (?, ?, ?, ?)";
+
+        $stmt = $pdo->prepare($query);
+
+        $executeQuery = $stmt->execute(
+            [11, "bingchilling", "bingchilling@gmail.com", "morning person and likes book"]
+        );
+
+        if ($executeQuery){
+            echo "Query Succesful";
+        }
+        else {
+            echo "Query failed ";
         }
     ?>
 </body>
