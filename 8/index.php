@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users Table</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- css for table -->
 </head>
 <body>
     <table>
@@ -24,13 +24,14 @@
                 $stmt = $pdo->prepare($query);
                 $stmt->execute();
                 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+                
+                //for loop to repeat each rows in the table
                 foreach ($users as $user) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($user['UserID']) . "</td>";
-                    echo "<td>" . htmlspecialchars($user['Name']) . "</td>";
-                    echo "<td>" . htmlspecialchars($user['email']) . "</td>";
-                    echo "<td>" . htmlspecialchars($user['preferences']) . "</td>";
+                    echo "<td>" . ($user['UserID']) . "</td>";
+                    echo "<td>" . ($user['Name']) . "</td>";
+                    echo "<td>" . ($user['email']) . "</td>";
+                    echo "<td>" . ($user['preferences']) . "</td>";
                     echo "</tr>";
                 }
             ?>
