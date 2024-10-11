@@ -9,12 +9,18 @@
 </head>
 <body>
     <?php
-        $stmt = $pdo->prepare("SELECT * FROM Users");
-            
-        if ($stmt->execute()) {
-            echo "<pre>";
-            print_r($stmt->fetchAll());
-            echo "<pre>";
+        $query = "DELETE FROM Users WHERE userid = 11";
+
+        $stmt = $pdo->prepare($query);
+
+        $executeQuery = $stmt->execute(
+        );
+
+        if ($executeQuery){
+            echo "Query Succesful";
+        }
+        else {
+            echo "Query failed ";
         }
     ?>
 </body>
